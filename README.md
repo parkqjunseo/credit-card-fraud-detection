@@ -1,5 +1,4 @@
-## Credit Card Fraud Detection (Imbalanced Classification)
-
+## Credit Card Fraud Detection
 신용카드 거래 데이터에서 사기 거래(Class=1)를 탐지하는 이진 분류 모델을 구현했습니다.  
 데이터의 극단적 클래스 불균형(사기 비율 약 0.17%) 문제를 고려하여  
 **cost-sensitive learning**과 **PR-AUC 기반 평가**를 적용했습니다.
