@@ -1,4 +1,4 @@
-# Credit Card Fraud Detection (Imbalanced Classification)
+## Credit Card Fraud Detection (Imbalanced Classification)
 
 신용카드 거래 데이터에서 사기 거래(Class=1)를 탐지하는 이진 분류 모델을 구현했습니다.  
 데이터의 극단적 클래스 불균형(사기 비율 약 0.17%) 문제를 고려하여  
@@ -10,7 +10,7 @@
 
 ---
 
-## Dataset
+### Dataset
 - Kaggle Credit Card Fraud Dataset  
   https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud
 
@@ -20,14 +20,12 @@
 
 ---
 
-## Problem Setting
+### Problem Setting
 - Binary classification (정상 거래 vs 사기 거래)
 - Extreme class imbalance (fraud ratio ≈ 0.17%)
 - Accuracy는 의미 있는 지표가 아니므로 **PR-AUC**를 주요 평가 지표로 사용
 
 ---
-
-## Methods
 
 ### Baseline Model
 - **Logistic Regression**
@@ -40,7 +38,7 @@
 
 ---
 
-## Hyperparameter Tuning
+### Hyperparameter Tuning
 - Optimizer: **Optuna (Bayesian Optimization)**
 - Objective metric: **PR-AUC (Average Precision)**
 - **Stratified K-Fold Cross-Validation (K=5)** 기반으로  
@@ -49,7 +47,7 @@
 
 ---
 
-## Preprocessing
+### Preprocessing
 - 입력 특성: `V1 ~ V28` + `Amount`
 - `V1 ~ V28`은 이미 변환된 특성(PCA 기반)으로 가정
 - `Amount` 특성만 train set 기준으로 `StandardScaler` 적용
@@ -57,7 +55,7 @@
 
 ---
 
-## Evaluation
+### Evaluation
 - Train / Validation / Test = 60 / 20 / 20 분할
 - 하이퍼파라미터 튜닝은 train+validation 데이터로만 수행
 - 최종 성능 평가는 **held-out test set의 PR-AUC**로 측정
@@ -65,12 +63,12 @@
 
 ---
 
-## Output
-- Test set에 대한 사기 거래 확률 예측 결과를 Score/score.csv 파일로 저장합니다.
+### Output
+- Test set에 대한 사기 거래 확률 예측 결과를 `Score/score.csv` 파일로 저장합니다.
 
 ---
 
-## Key Takeaways
+### Key Takeaways
 - 극단적 불균형 데이터에서는 Accuracy나 ROC-AUC보다 PR-AUC가 더 적절한 평가 지표
 - Cost-sensitive learning은 소수 클래스 탐지 성능을 크게 개선함
 - Stratified K-Fold CV 기반 하이퍼파라미터 튜닝은 단일 validation split 대비 안정적인 성능 추정 제공
